@@ -72,4 +72,58 @@
 @property(nonatomic,strong) id <PlayerControllerDelegate> delegate;
 @end
 
+@protocol AVDataDelegate <NSObject>
+@end
+
+@interface QYMessageRequest : NSObject
+@end
+
+@interface MessageBufferPingback : QYMessageRequest
+@end
+
+@interface VVLogObject : NSObject
+@end
+
+@protocol QYAVPlayerDelegate <NSObject>
+@end
+
+@interface CTCallCenter : NSObject
+@end
+
+@interface CTTelephonyNetworkInfo : NSObject
+@end
+
+@protocol PumaPlayerProtocol <NSObject>
+@end
+
+typedef struct {
+    int _field1;
+    int _field2;
+    char _field3[64];
+    _Bool _field4;
+    char _field5[1024];
+    char _field6[1024];
+    char _field7[1024];
+    char _field8[65535];
+    char _field9[1024];
+} CDStruct_ecd312c9;
+
+
+@protocol PPSRapidDownloadDelegate <NSObject>
+@end
+
+@interface QYDbBase : NSObject
+@end
+
+@interface QY_Offline : QYDbBase
+@end
+
+@interface QYDownloadTask : QY_Offline
+@end
+
+
+
+
+
+
 #endif /* QY_h */

@@ -726,3 +726,161 @@
 - (void)wakeupPlayer { %log; %orig; }
 - (struct CGRect)waterFrameWithImgSize:(struct CGSize)arg1 { %log; struct CGRect r = %orig; return r; }
 %end
+
+
+//%hook QYAVPlayerController
+//- (void)playMovieWithStrData:(id)arg1 { %log; %orig; }
+//- (void)setDataDictionary:(NSMutableDictionary *)dataDictionary { %log; %orig; }
+//- (NSMutableDictionary *)dataDictionary { %log; NSMutableDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+//
+//%end
+
+%hook IOSPumaPlayer
++ (id)GetADExportLog { %log; id r = %orig; NSLog(@" = %@", r); return r; }
++ (_Bool)clearP2PCache:(int)arg1 { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
++ (id)getAdSdkInfo { %log; id r = %orig; NSLog(@" = %@", r); return r; }
++ (id)getPumaLog { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (void)initialIQiyiPlayer:(CDStruct_ecd312c9)arg1 { %log; %orig; }
++ (void)initialP2P:(id)arg1 { %log; %orig; }
++ (id)qiyiPlayerVersion { %log; id r = %orig; NSLog(@" = %@", r); return r; }
++ (long long)setAdSdkInfo:(id)arg1 { %log; long long r = %orig; NSLog(@" = %lld", r); return r; }
++ (void)setPumaState:(id)arg1 { %log; %orig; }
++ (void)uninitialIQiyiPlayer { %log; %orig; }
++ (void)uninitialP2P { %log; %orig; }
+- (void)cxx_destruct { %log; %orig; }
+- (int)GetCurrentSubtitleLanguage { %log; int r = %orig; NSLog(@" = %d", r); return r; }
+- (long long)GetEPGServerTime { %log; long long r = %orig; NSLog(@" = %lld", r); return r; }
+- (id)InvokePumaPlayerCommand:(int)arg1 cmdParams:(id)arg2 pumaBuffer:(id)arg3 { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (void)SetDMStatus:(_Bool)arg1 { %log; %orig; }
+- (void)SetEndPoint:(_Bool)arg1 { %log; %orig; }
+- (void)SwitchSubtitle:(int)arg1 { %log; %orig; }
+- (long long)adsLeftTime { %log; long long r = %orig; NSLog(@" = %lld", r); return r; }
+- (long long)currentTime { %log; long long r = %orig; NSLog(@" = %lld", r); return r; }
+- (id)currentVideoInfo { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (void)dealloc { %log; %orig; }
+- (void)destroyNativePlayer { %log; %orig; }
+- (long long)duration { %log; long long r = %orig; NSLog(@" = %lld", r); return r; }
+- (int)endStateReason { %log; int r = %orig; NSLog(@" = %d", r); return r; }
+- (void)excuteAdCommand:(int)arg1 withParam1:(void *)arg2 withParam2:(void *)arg3 { %log; %orig; }
+- (id)getAudioTracks { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (id)getBitStreams:(id)arg1 { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (long long)getBufferLength { %log; long long r = %orig; NSLog(@" = %lld", r); return r; }
+- (id)getCurrentAudioTrack { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (int)getCurrentBitStream { %log; int r = %orig; NSLog(@" = %d", r); return r; }
+- (id)getErrorCode { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (int)getPlayerCoreState { %log; int r = %orig; NSLog(@" = %d", r); return r; }
+- (int)getPlayerState { %log; int r = %orig; NSLog(@" = %d", r); return r; }
+- (id)getSubtitleLanguages { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (const char *)getVIJson { %log; const char * r = %orig; return r; }
+- (id)init { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (_Bool)isWaiting { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+- (float)loadingProgress { %log; float r = %orig; NSLog(@" = %f", r); return r; }
+- (void)login:(id)arg1 { %log; %orig; }
+- (void)logout { %log; %orig; }
+- (id)movieinfo { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (void)pause:(_Bool)arg1 { %log; %orig; }
+- (void)play { %log; %orig; }
+//- (void)setPlayerDelegate:(__weak id <PumaPlayerProtocol> )playerDelegate { %log; %orig; }
+//- (__weak id <PumaPlayerProtocol> )playerDelegate { %log; __weak id <PumaPlayerProtocol>  r = %orig;); return r; }
+- (void)prepareMovie:(id)arg1 { %log; %orig; }
+- (void)prepareMovieWithExternInfo:(id)arg1 { %log; %orig; }
+//- (void)prepareMovieWithString:(id)arg1 {%log; %orig;}
+- (void)printLog:(id)arg1 { %log; %orig; }
+- (void)retry { %log; %orig; }
+- (void)seekToTime:(long long)arg1 { %log; %orig; }
+- (void)setAppInfo:(id)arg1 { %log; %orig; }
+- (void)setDapOn:(_Bool)arg1 { %log; %orig; }
+- (void)setNextMovie:(id)arg1 { %log; %orig; }
+- (void)setPlayerState:(id)arg1 { %log; %orig; }
+- (void)setPresentView:(id)arg1 { %log; %orig; }
+- (void)setSkipTitles:(_Bool)arg1 { %log; %orig; }
+- (void)setSkipTrailer:(_Bool)arg1 { %log; %orig; }
+- (void)sleepPlayer { %log; %orig; }
+- (void)start { %log; %orig; }
+- (void)startLoad { %log; %orig; }
+- (void)stop { %log; %orig; }
+- (void)stopLoad { %log; %orig; }
+- (void)switchAudioStream:(id)arg1 { %log; %orig; }
+- (void)switchBitStream:(int)arg1 { %log; %orig; }
+- (void)wakeupPlayer { %log; %orig; }
+%end
+
+//%hook LCBPlayerCommon
+//+ (id)AppsKey { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (id)DefaultUserAgent { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (id)DeviceModel { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (id)acountName { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (id)appVersion { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (id)checkUrl:(id)arg1 { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (id)cookie { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (id)dictionaryToJson:(id)arg1 { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (_Bool)getAutojump { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+//+ (id)getCurSettingResValue { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (id)getUID { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (_Bool)isAirPlayActive { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+//+ (_Bool)isLogin { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+//+ (_Bool)isVIP { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+//+ (id)jsonToDictionary:(id)arg1 { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (id)playerCoreType { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (id)playerId { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (long long)preloadTimeControl { %log; long long r = %orig; NSLog(@" = %lld", r); return r; }
+//+ (id)qiyiID { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (void)setAdLog:(id)arg1 { %log; %orig; }
+//+ (id)udid { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//+ (long long)userStatus { %log; long long r = %orig; NSLog(@" = %lld", r); return r; }
+//+ (long long)userVipStatus { %log; long long r = %orig; NSLog(@" = %lld", r); return r; }
+//%end
+//
+//%hook QYPlayVipVideoJudgement
+//+ (_Bool)couldPlayThisVideo:(id)arg1 tvid:(id)arg2 album:(id)arg3 { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+//+ (_Bool)hasAlbumPlayAuthorization:(id)arg1 { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+//+ (_Bool)hasLocalVideo:(id)arg1 tvid:(id)arg2 album:(id)arg3 { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+//+ (_Bool)isVipMovie:(id)arg1 { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+//+ (id)vipSmallFlagImgName { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+//%end
+
+
+%hook PPSRapidDownload
+- (void)cxx_destruct { %log; %orig; }
+- (void)beginTask1 { %log; %orig; }
+- (void)dealloc { %log; %orig; }
+- (void)setDirectoryPath:(NSString *)directoryPath { %log; %orig; }
+- (NSString *)directoryPath { %log; NSString * r = %orig; NSLog(@" = %@", r); return r; }
+- (void)setFid:(NSString *)fid { %log; %orig; }
+- (NSString *)fid { %log; NSString * r = %orig; NSLog(@" = %@", r); return r; }
+- (void)setFilePath:(NSString *)filePath { %log; %orig; }
+- (NSString *)filePath { %log; NSString * r = %orig; NSLog(@" = %@", r); return r; }
+- (void)getDownloadP2PWithReceivedDic1:(id)arg1 error:(id *)arg2 { %log; %orig; }
+- (id)getOneDownloadBlock:(int)arg1 { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (id)init { %log; id r = %orig; NSLog(@" = %@", r); return r; }
+- (_Bool)isQiyiKeyAvailable:(id)arg1 { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+- (void)setIsVip:(long long )isVip { %log; %orig; }
+- (long long )isVip { %log; long long  r = %orig; NSLog(@" = %lld", r); return r; }
+- (void)setMovieFolder:(NSString *)movieFolder { %log; %orig; }
+- (NSString *)movieFolder { %log; NSString * r = %orig; NSLog(@" = %@", r); return r; }
+- (void)setMovieId:(NSString *)movieId { %log; %orig; }
+- (NSString *)movieId { %log; NSString * r = %orig; NSLog(@" = %@", r); return r; }
+- (_Bool)oneFileDownloadFinished { %log; _Bool r = %orig; NSLog(@" = %d", r); return r; }
+- (void)setQiyicdn:(NSString *)qiyicdn { %log; %orig; }
+- (NSString *)qiyicdn { %log; NSString * r = %orig; NSLog(@" = %@", r); return r; }
+//- (void)setRDelegate:(__weak id <PPSRapidDownloadDelegate> )rDelegate { %log; %orig; }
+//- (__weak id <PPSRapidDownloadDelegate> )rDelegate { %log; __weak id <PPSRapidDownloadDelegate>  r = %orig; NSLog(@" = 0x%x", (unsigned int)r); return r; }
+- (void)saveDicInfoForF4v:(id)arg1 { %log; %orig; }
+- (void)saveDicInfoForPlayer:(id)arg1 { %log; %orig; }
+- (void)saveDicInfoForPuma:(id)arg1 { %log; %orig; }
+- (void)setSectionDic:(NSDictionary *)sectionDic { %log; %orig; }
+- (NSDictionary *)sectionDic { %log; NSDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+- (void)sendFaileBack { %log; %orig; }
+- (void)sendStep1Request:(id)arg1 jsonPath:(id)arg2 withRetryTimes:(long long)arg3 { %log; %orig; }
+- (void)setTask:(QYDownloadTask *)task { %log; %orig; }
+- (QYDownloadTask *)task { %log; QYDownloadTask * r = %orig; NSLog(@" = %@", r); return r; }
+- (void)setTvid:(NSString *)tvid { %log; %orig; }
+- (NSString *)tvid { %log; NSString * r = %orig; NSLog(@" = %@", r); return r; }
+- (void)setUrlDic:(NSMutableDictionary *)urlDic { %log; %orig; }
+- (NSMutableDictionary *)urlDic { %log; NSMutableDictionary * r = %orig; NSLog(@" = %@", r); return r; }
+- (void)setVid:(NSString *)vid { %log; %orig; }
+- (NSString *)vid { %log; NSString * r = %orig; NSLog(@" = %@", r); return r; }
+- (void)startPPSRapidDownload:(id)arg1 cdnUrl:(id)arg2 { %log; %orig; }
+- (void)startPPSRapidDownload:(id)arg1 fileName:(id)arg2 qiyicdn:(id)arg3 isVip:(long long)arg4 { %log; %orig; }
+- (void)toDicWithData:(id)arg1 error:(id *)arg2 { %log; %orig; }
+%end
